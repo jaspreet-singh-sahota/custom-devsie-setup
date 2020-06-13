@@ -121,11 +121,11 @@ module Devise
       #
       # Example:
       #
-      #   def update_without_password(params, *options)
-      #     params.delete(:email)
-      #     super(params)
-      #   end
-      #
+        def update_without_password(params, *options)
+          params.delete(:email)
+          super(params)
+        end
+      
       def update_without_password(params, *options)
         if options.present?
           ActiveSupport::Deprecation.warn <<-DEPRECATION.strip_heredoc
