@@ -644,7 +644,7 @@ Devise allows you to set up as many Devise models as you want. If you want to ha
 # Create a migration with the required fields
 create_table :admins do |t|
   t.string :email
-  t.string :encrypted_password
+  # t.string :encrypted_password
   t.timestamps null: false
 end
 

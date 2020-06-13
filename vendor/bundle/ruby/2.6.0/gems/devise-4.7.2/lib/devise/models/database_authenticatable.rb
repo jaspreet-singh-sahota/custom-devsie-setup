@@ -205,25 +205,25 @@ module Devise
         Devise::Encryptor.digest(self.class, password)
       end
 
-      if Devise.activerecord51?
-        def send_email_changed_notification?
-          self.class.send_email_changed_notification && saved_change_to_email? && !@skip_email_changed_notification
-        end
-      else
-        def send_email_changed_notification?
-          self.class.send_email_changed_notification && email_changed? && !@skip_email_changed_notification
-        end
-      end
+      # if Devise.activerecord51?
+      #   def send_email_changed_notification?
+      #     self.class.send_email_changed_notification && saved_change_to_email? && !@skip_email_changed_notification
+      #   end
+      # else
+      #   def send_email_changed_notification?
+      #     self.class.send_email_changed_notification && email_changed? && !@skip_email_changed_notification
+      #   end
+      # end
 
-      if Devise.activerecord51?
-        def send_password_change_notification?
-          self.class.send_password_change_notification && saved_change_to_encrypted_password? && !@skip_password_change_notification
-        end
-      else
-        def send_password_change_notification?
-          self.class.send_password_change_notification && encrypted_password_changed? && !@skip_password_change_notification
-        end
-      end
+      # if Devise.activerecord51?
+      #   def send_password_change_notification?
+      #     self.class.send_password_change_notification && saved_change_to_encrypted_password? && !@skip_password_change_notification
+      #   end
+      # else
+      #   def send_password_change_notification?
+      #     self.class.send_password_change_notification && encrypted_password_changed? && !@skip_password_change_notification
+      #   end
+      # end
 
       module ClassMethods
         Devise::Models.config(self, :pepper, :stretches, :send_email_changed_notification, :send_password_change_notification)
